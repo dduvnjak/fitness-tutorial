@@ -2,6 +2,12 @@ FitnessTutorial::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  # Assets redirect
+  get '/img/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  get '/images/:name', to: redirect {|params, req| "/assets/#{params[:name]}.#{params[:format]}" }
+  # get '/fonts/:name', to: redirect {|params, req| "/assets/fonts/#{params[:name]}.#{params[:format]}" }
+
+
 
   root 'home#index'
 
