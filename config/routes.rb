@@ -8,6 +8,8 @@ FitnessTutorial::Application.routes.draw do
   # get '/fonts/:name', to: redirect {|params, req| "/assets/fonts/#{params[:name]}.#{params[:format]}" }
 
 
+  resources :trainers
+
 
   root 'home#index'
 

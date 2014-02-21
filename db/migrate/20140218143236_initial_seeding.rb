@@ -23,5 +23,7 @@ class InitialSeeding < ActiveRecord::Migration
   end
 
   def down
+    drop_table :users
+    drop_table :articles
   end
 end
