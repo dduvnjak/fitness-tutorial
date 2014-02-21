@@ -1,4 +1,4 @@
-bootstrap-example
-=================
+fitness-tutorial
+================
 
-Just quick bootstrap example created from free time from start bootstrap page
+Fitness tutorial example page
