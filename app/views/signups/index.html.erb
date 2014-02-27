@@ -1,0 +1,47 @@
+<div class="intro-header" style="background: url(/img/fitness-back3.jpg) no-repeat center center;">
+	<div class="container">
+		<div class="col-lg-12">
+			<div class="intro-message">
+				<% if flash[:status] == false %>
+					<h1><%= flash[:alert] %></h1>
+				<% end %>
+				<%= form_tag signups_path(), :method => "POST", :class => 'form-horizontal col-lg-6', :id => 'create_signups_form' do %>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
+					    </div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Firs name</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="first_name" placeholder="First name" name="first_name" required>
+					    </div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Last name</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="last_name" placeholder="Last name" name="last_name" required>
+					    </div>
+					</div>
+
+					<div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+					    <div class="col-sm-10">
+					      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+					    </div>
+					</div>
+
+					<div class="form-group form-inline">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class="btn btn-danger">Sign up</button>&nbsp;
+					      <label style="color:black">Member? <a href="login">Sign in!</a></
+					     </div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

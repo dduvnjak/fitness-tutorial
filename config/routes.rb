@@ -10,6 +10,10 @@ FitnessTutorial::Application.routes.draw do
 
   resources :trainers
 
+  resources :signups, :only => [:index, :create]
+  get 'signup' => 'signups#index'
+  
+
   resources :sessions, :only => [:index, :create, :destroy]
   get 'login' => 'sessions#index'
   get 'logout' => 'sessions#destroy'
