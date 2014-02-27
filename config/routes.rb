@@ -14,6 +14,9 @@ FitnessTutorial::Application.routes.draw do
   get 'login' => 'sessions#index'
   get 'logout' => 'sessions#destroy'
 
+  resources :profiles, :only => [:index]
+  get 'profile' => 'profiles#index'
+
   root 'home#index'
 
   # You can have the root of your site routed with "root"
