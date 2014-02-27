@@ -10,6 +10,9 @@ FitnessTutorial::Application.routes.draw do
 
   resources :trainers
 
+  resources :sessions, :only => [:index, :create, :destroy]
+  get 'login' => 'sessions#index'
+  get 'logout' => 'sessions#destroy'
 
   root 'home#index'
 
