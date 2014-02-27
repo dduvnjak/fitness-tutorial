@@ -7,6 +7,7 @@
         <button id="create_trainer" class="btn btn-default btn-info" type="button">
           Create Trainer
         </button>
+        
       </div>
       <br />
 
@@ -36,11 +37,47 @@
               <span>Hour Price <b><%= trainer.hour_price%> KM</b></span>
             </div>
             <div class="clearfix"></div>
+
             <div style="padding-left: 20px; padding-top: 10px;">
-            <%= link_to trainer_path(trainer), :class => "btn btn-sm btn-danger", :method => :delete, :title => 'Delete Trainer', :confirm => "Are you sure?" do %>
+            <%= link_to trainer_path(trainer), :class => "btn btn-sm btn-danger", :method => :delete, :title => 'Delete Trainer', :confirm => "Are you sure?" do%>
               <span>Delete Trainer</span>
             <% end %>
             </div>
+
+
+
+          <div class="control-group">
+            <div style="padding-left: 20px; padding-top: 10px;">
+            <button  class="btn btn-sm btn-warning edit_trainer" type="button">
+                Edit Trainer
+            </button>
+            </div>
+            </div> 
+
+            <div class="row"> 
+
+
+
+            <%= form_tag('/trainers/update', :method => "put", :action =>:update , :class => "col-lg-2 collapse-group", :class => 'edit_trainer_form') do %> 
+
+            <div class="form-group collapse" style="padding-left: 20px; padding-top: 10px;">
+            <br>
+            <input value = <%= trainer.first_name %> required name="first_name" type="text" placeholder="First Name" class="form-control"/><br />
+            <input value = <%= trainer.last_name %> required name="last_name" type="text" placeholder="Last Name"  class="form-control"><br />
+            <input value = <%= trainer.header %> required name="header" type="text" placeholder="Position"  class="form-control"><br />
+            <textarea required name="description" type="text" placeholder="Description" class="form-control"><%= trainer.description %> </textarea><br />
+            <input value = <%= trainer.hour_price %> required name="hour_price" type="text" placeholder="Hour Price"  class="form-control" /><br />
+            <input type="hidden" name="ID" value= <%= trainer.id %>>
+
+            <button class="btn btn-warning" type="submit">Edit</button> 
+            
+            </div>
+            <% end %> 
+
+            
+            </div> 
+         
+
         </div>
       <% end %>
 
@@ -55,6 +92,14 @@
       e.preventDefault();
       var $collapse = $('#create_trainer_form').find('.collapse');
       $collapse.collapse('toggle');
+  });
+
+  $('.edit_trainer').on('click', function(e) {
+      e.preventDefault();
+      var $collapse = $(this).parent().parent().parent().find('.collapse');
+
+      $collapse.collapse('toggle');
+      console.log("Enter");
   });
 
 </script>

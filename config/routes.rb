@@ -10,8 +10,28 @@ FitnessTutorial::Application.routes.draw do
 
   resources :trainers
 
+  #get '/contact/new' => 'contacts#new'
+ resources :inquiries, :only => [:new, :create] do
+  get 'thank_you', :on => :collection
+  end
+
+
+
 
   root 'home#index'
+
+  post ':controller(/:action(/:id(.:format)))'
+  get ':controller(/:action(/:id(.:format)))'
+  put ':controller(/:action(/:id(.:format)))'
+
+  get 'trainers/edit' => 'trainers#edit'
+
+  put 'trainers/edit' => 'trainers#edit'
+
+
+  #trainers.edit 'edit' :controller => 'trainers', :action => 'edit'
+
+  
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
