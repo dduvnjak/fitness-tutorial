@@ -14,9 +14,16 @@ FitnessTutorial::Application.routes.draw do
  resources :inquiries, :only => [:new, :create] do
   get 'thank_you', :on => :collection
   end
+  resources :signups, :only => [:index, :create]
+  get 'signup' => 'signups#index'
+  
 
+  resources :sessions, :only => [:index, :create, :destroy]
+  get 'login' => 'sessions#index'
+  get 'logout' => 'sessions#destroy'
 
-
+  resources :profiles, :only => [:index]
+  get 'profile' => 'profiles#index'
 
   root 'home#index'
 

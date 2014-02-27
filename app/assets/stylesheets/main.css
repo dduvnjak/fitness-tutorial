@@ -22,6 +22,10 @@ body, h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+.loginHead {
+  background: url(../img/fitness-back3.jpg) no-repeat center center;
+}
+
 .intro-message {
   position: relative;
   padding-top: 20%;
