@@ -10,7 +10,8 @@ class SignupsController < ApplicationController
 		User.create({:username => params[:username],
 			:password_hash => Digest::MD5.hexdigest(params[:password]),
 			:first_name => params[:first_name],
-			:last_name => params[:last_name]
+			:last_name => params[:last_name],
+			:user_type => 3
 			});
 		
 		redirect_to login_path
