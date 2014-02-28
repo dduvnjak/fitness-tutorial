@@ -11,6 +11,22 @@ class TrainersController < ApplicationController
   end
 
 
+  def update
+
+    trainer = Trainer.find(params[:ID])
+
+    
+    trainer.first_name = params[:first_name]
+    trainer.last_name = params[:last_name]
+    trainer.header = params[:header]
+    trainer.description = params[:description]
+    trainer.hour_price = params[:hour_price]
+
+    trainer.save
+
+    redirect_to trainers_path  
+  end
+
   def destroy
     trainer = Trainer.find(params[:id])
     trainer.destroy
