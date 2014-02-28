@@ -5,6 +5,9 @@ class InquiriesController < ApplicationController
   end
 
   def create
+
+
+    UserMail.verify(user, "Hello")
    
     @inquiry = Inquiry.new(params[:inquiry])
     

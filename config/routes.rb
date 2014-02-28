@@ -10,6 +10,8 @@ FitnessTutorial::Application.routes.draw do
 
   resources :trainers
 
+  
+
   #get '/contact/new' => 'contacts#new'
  resources :inquiries, :only => [:new, :create] do
   get 'thank_you', :on => :collection

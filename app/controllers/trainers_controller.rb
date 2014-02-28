@@ -1,5 +1,5 @@
-class TrainersController < ApplicationController
-  before_filter :check_login, :only => [:index]
+class TrainersController < AuthController
+  before_filter :require_login, :except => [:index]
   
   def index
   end
@@ -13,9 +13,12 @@ class TrainersController < ApplicationController
 
   def update
 
-    trainer = Trainer.find(params[:ID])
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts params[:id]
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
-    
+    trainer = Trainer.find(params[:id])
+
     trainer.first_name = params[:first_name]
     trainer.last_name = params[:last_name]
     trainer.header = params[:header]

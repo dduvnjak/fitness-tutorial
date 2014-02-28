@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 	def index
-		if session[:user_id]
+		if @user
 			redirect_to '/'
 		end
 	end
@@ -9,8 +9,6 @@ class SessionsController < ApplicationController
 		user = User.check_user(params[:username], params[:password])
 		if user
 			session[:user_id] = user.id
-			session[:username] = user.username
-			session[:user_type] = user.user_type
 			redirect_to '/'
 		else
 			flash[:status] = false

@@ -34,9 +34,9 @@
                   </li>
                   <li><a href="http://localhost:3000/inquiries/new">Contact</a>
                   </li>
-                  <% if session[:user_id] %>
+                  <% if @user %>
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:username] %><b class="caret"></b></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @user.username %><b class="caret"></b></a>
                       <ul class="dropdown-menu">
                         <li><a href="profile">My profile</a></li>
                         <li><a href="logout">Logout</a></li>
@@ -54,6 +54,14 @@
       <!-- /.container -->
   </nav>
   
+
+  <% if flash[:error] %>
+    <%= flash[:error] %>
+  <% end %>  
+  <% if flash[:info] %>
+    <%= flash[:info] %>
+  <% end %>
+
   <%= yield %>
 
 

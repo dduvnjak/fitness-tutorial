@@ -4,7 +4,7 @@
 
     <div class="container">
       <div class="control-group">
-        <% if session[:user_id] and session[:user_type] == 1%>
+        <% if @user && @user.user_type_id == 1 %>
         <button id="create_trainer" class="btn btn-default btn-info" type="button">
           Create Trainer
         </button>
@@ -38,7 +38,7 @@
               <span>Hour Price <b><%= trainer.hour_price%> KM</b></span>
             </div>
             <div class="clearfix"></div>
-            <% if session[:user_id] and session[:user_type] == 1%>
+            <% if @user && @user.user_type_id == 1 %>
             <div style="padding-left: 20px; padding-top: 10px;">
             <%= link_to trainer_path(trainer), :class => "btn btn-sm btn-danger", :method => :delete, :title => 'Delete Trainer', :confirm => "Are you sure?" do%>
               <span>Delete Trainer</span>
@@ -59,7 +59,7 @@
 
 
 
-            <%= form_tag('/trainers/update', :method => "put", :action =>:update , :class => "col-lg-2 collapse-group", :class => 'edit_trainer_form') do %> 
+            <%= form_tag(trainer_path(trainer), :method => "put", :action =>:update , :class => "col-lg-2 collapse-group", :class => 'edit_trainer_form') do %> 
 
             <div class="form-group collapse" style="padding-left: 20px; padding-top: 10px;">
             <br>
@@ -68,8 +68,7 @@
             <input value = <%= trainer.header %> required name="header" type="text" placeholder="Position"  class="form-control"><br />
             <textarea required name="description" type="text" placeholder="Description" class="form-control"><%= trainer.description %> </textarea><br />
             <input value = <%= trainer.hour_price %> required name="hour_price" type="text" placeholder="Hour Price"  class="form-control" /><br />
-            <input type="hidden" name="ID" value= <%= trainer.id %>>
-
+    
             <button class="btn btn-warning" type="submit">Edit</button> 
             
             </div>

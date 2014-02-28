@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class ProfilesController < AuthController
 
 	def index
 		if not session[:user_id]
