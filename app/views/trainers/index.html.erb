@@ -4,7 +4,7 @@
 
     <div class="container">
       <div class="control-group">
-        <% if session[:user_id] %>
+        <% if session[:user_id] and session[:user_type] == 1%>
         <button id="create_trainer" class="btn btn-default btn-info" type="button">
           Create Trainer
         </button>
@@ -38,7 +38,7 @@
               <span>Hour Price <b><%= trainer.hour_price%> KM</b></span>
             </div>
             <div class="clearfix"></div>
-            <% if session[:user_id] %>
+            <% if session[:user_id] and session[:user_type] == 1%>
             <div style="padding-left: 20px; padding-top: 10px;">
             <%= link_to trainer_path(trainer), :class => "btn btn-sm btn-danger", :method => :delete, :title => 'Delete Trainer', :confirm => "Are you sure?" do%>
               <span>Delete Trainer</span>

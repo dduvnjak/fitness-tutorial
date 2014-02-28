@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 		if user
 			session[:user_id] = user.id
 			session[:username] = user.username
+			session[:user_type] = user.user_type
 			redirect_to '/'
 		else
 			flash[:status] = false
