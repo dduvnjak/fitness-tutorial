@@ -27,3 +27,9 @@ Trainer.create({
     :user => admin_user,
     :hour_price => 6.5
   })
+
+
+User_Type.create({
+    :user_type_name => 'admin',
+    :user_type => 1,
+  })
