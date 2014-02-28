@@ -33,3 +33,14 @@ User_Type.create({
     :user_type_name => 'admin',
     :user_type => 1,
   })
+
+
+User_Type.create({
+    :user_type_name => 'trainer',
+    :user_type => 2,
+  })
+
+User_Type.create({
+    :user_type_name => 'member',
+    :user_type => 3,
+  })
