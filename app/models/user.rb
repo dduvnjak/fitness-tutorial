@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   		nil
   	end
   end
+  
 end
