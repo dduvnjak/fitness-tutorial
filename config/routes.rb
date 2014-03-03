@@ -10,6 +10,7 @@ FitnessTutorial::Application.routes.draw do
 
   resources :trainers
 
+  resources :articles
   
 
   #get '/contact/new' => 'contacts#new'

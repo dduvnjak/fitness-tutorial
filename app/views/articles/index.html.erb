@@ -1,0 +1,97 @@
+<div class="content-section-a">
+
+    <br />
+
+    <div class="container">
+      <div class="control-group">
+        <% if @user && @user.user_type_id == 1 %>
+        <button id="create_article" class="btn btn-default btn-info" type="button">
+          Write Article
+        </button>
+        <% end %>
+      </div>
+      <br />
+
+      <div class="row">
+
+        <%= form_tag articles_path(), :method => "POST", :class => "col-lg-6 collapse-group", :id => 'create_article_form' do %>
+          <div class="form-group collapse">
+            <input required name="header" type="text" placeholder="Header" class="form-control"/><br />
+            <textarea required name="content" type="text" placeholder="Content" class="form-control"></textarea><br />
+
+            <button class="btn btn-default btn-info" type="submit">Create</button>
+          </div>
+        <% end %>
+      </div>
+      
+      <% Article.all.each do |article| %>      
+        <div class="row">
+            <div class="col-lg-12">
+              <hr class="section-heading-spacer">
+              <div class="clearfix"></div>
+              <h4 class="section-heading"><%= article.header %></h4>
+              <p class="lead"><%= article.content %></p>
+            </div>
+            <div class="clearfix"></div>
+            <% if @user && @user.user_type_id == 1 %>
+            <div style="padding-left: 20px; padding-top: 10px;">
+            <%= link_to article_path(article), :class => "btn btn-sm btn-danger", :method => :delete, :title => 'Delete Article', :confirm => "Are you sure?" do%>
+              <span>Delete Article</span>
+            <% end %>
+            </div>
+            
+
+
+          <div class="control-group">
+            <div style="padding-left: 20px; padding-top: 10px;">
+            <button  class="btn btn-sm btn-warning edit_article" type="button">
+                Edit Article
+            </button>
+            </div>
+            </div> 
+            <% end %>
+            <div class="row"> 
+
+
+
+            <%= form_tag(article_path(article), :method => "put", :action =>:update , :class => "col-lg-2 collapse-group", :class => 'edit_article_form') do %> 
+
+            <div class="form-group collapse" style="padding-left: 20px; padding-top: 10px;">
+            <br>
+            <input value="<%= article.header %>" required name="header" type="text" placeholder="Header" class="form-control"/><br />
+            <textarea required name="content" type="text" placeholder="Content" class="form-control"><%= article.content %></textarea><br />
+    
+            <button class="btn btn-warning" type="submit">Edit</button> 
+            
+            </div>
+            <% end %> 
+
+            
+            </div> 
+         
+
+        </div>
+      <% end %>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+
+<script type="text/javascript">
+  
+  $('#create_article').on('click', function(e) {
+      e.preventDefault();
+      var $collapse = $('#create_article_form').find('.collapse');
+      $collapse.collapse('toggle');
+  });
+
+  $('.edit_article').on('click', function(e) {
+      e.preventDefault();
+      var $collapse = $(this).parent().parent().parent().find('.collapse');
+
+      $collapse.collapse('toggle');
+      console.log("Enter");
+  });
+
+</script>
