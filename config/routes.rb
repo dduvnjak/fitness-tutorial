@@ -13,10 +13,6 @@ FitnessTutorial::Application.routes.draw do
   resources :articles
   
 
-  #get '/contact/new' => 'contacts#new'
- resources :inquiries, :only => [:new, :create] do
-  get 'thank_you', :on => :collection
-  end
   resources :signups, :only => [:index, :create]
   get 'signup' => 'signups#index'
   
@@ -38,8 +34,11 @@ FitnessTutorial::Application.routes.draw do
 
   put 'trainers/edit' => 'trainers#edit'
 
+  resources :contacts, :only => [:new, :create] do
+  get 'thank_you', :on => :collection
+  end
 
-  #trainers.edit 'edit' :controller => 'trainers', :action => 'edit'
+
 
   
 

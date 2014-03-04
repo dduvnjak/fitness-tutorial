@@ -8,6 +8,15 @@ Bundler.require(:default, Rails.env)
 
 module FitnessTutorial
   class Application < Rails::Application
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "localhost.localdomain",
+    :user_name            => "fitness.tutorial.ror",
+    :password             => "fitnesstutorialror",
+    :authentication       => :plain,
+    :enable_starttls_auto => true
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
