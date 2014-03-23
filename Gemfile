@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
+#gem 'capistrano-unicorn'
+gem 'capistrano-unicorn', require: false, github: 'inbeom/capistrano-unicorn', branch: 'capistrano3'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
